@@ -1,0 +1,13 @@
+version: '2'
+services:
+    lar:
+        container_name: lar
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        volumes:
+            - ./lar-module:/var/www/html/lar-module
+            - ./default.conf:/etc/apache2/sites-available/000-default.conf
+        ports:
+            - 81:80
